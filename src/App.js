@@ -24,7 +24,7 @@ function App() {
         <Routes>
           <Route path="/" element={<div className="overflow-x-hidden ">
             <Header />
-            {/* <Hero /> */}
+            <Hero />
             <Tags />
             <Network />
             <BillService />
