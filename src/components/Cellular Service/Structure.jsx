@@ -1,6 +1,6 @@
 import React from "react";
 import "../../App.css"
-import bill from "../../assets/images/summery.svg"
+
 
 const Structure = ({heading,details,point1,point2,point3,button,img,classe,padding}) => {
   

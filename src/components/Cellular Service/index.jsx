@@ -1,4 +1,4 @@
-import deploys from "../../assets/images/deploys.svg"
+
 import Hero from "./Hero";
 import img from "../../assets/images/summery.svg"
 import Strip from "./Strip";

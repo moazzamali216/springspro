@@ -72,13 +72,13 @@ const Accordion = () => {
                         </div>
                         <div className='w-full  md:w-1/2 flex items-center'>                      
                             {activeIndex === 0 && (
-                                <img src={img} />
+                                <img alt='hey' src={img} />
                             )}
                             {activeIndex === 1 && (
-                                <img src={img1} />
+                                <img alt='hey' src={img1} />
                             )}
                             {activeIndex === 2 && (
-                                <img src={img2} />
+                                <img alt='hey' src={img2} />
                             )}
                         </div>
                     </div>

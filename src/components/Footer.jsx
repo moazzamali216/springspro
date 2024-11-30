@@ -12,7 +12,7 @@ const Footer = () => {
                     <div className=" w-full  sm:gap-x-6 gap-x-4 md:w-[80%] lg:w-[70%] h-full gap-y-10 grid-cols-2 grid md:grid-cols-3 ">
                         <div className="h-full gap-1 flex flex-col">
                             <h1 className="text-gray-600  font-poppins  font-[350] inter pb-6 tracking-wider">Quick Links</h1>
-                            <a href="" className="text-gray-600 font-poppins font-[350] text-[14px] sm:text-[16px]  inter tracking-wider">Home</a>
+                            <a href="#" className="text-gray-600 font-poppins font-[350] text-[14px] sm:text-[16px]  inter tracking-wider">Home</a>
                             <a href="" className="text-gray-600 font-poppins font-[350] text-[14px] sm:text-[16px]  inter tracking-wider ">About</a>
                             <a href="" className="text-gray-600 font-poppins font-[350] text-[14px] sm:text-[16px]  inter tracking-wider mt-">First Responder Agency Solutions</a>
                             <a href="" className="text-gray-600 font-poppins font-[350] text-[14px] sm:text-[16px]  inter tracking-wider mt-">Technology Solutions</a>

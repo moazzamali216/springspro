@@ -6,7 +6,7 @@ import partner4 from "../../assets/images/partner4.png"
 import partner5 from "../../assets/images/partner5.png"
 import partner6 from "../../assets/images/partner6.png"
 import partner7 from "../../assets/images/partner7.png"
-import tech from "../../assets/images/tech.avif"
+
 import "../../App.css"
 
 
