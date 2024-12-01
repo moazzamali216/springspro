@@ -8,6 +8,7 @@ import Cellular from "./components/Cellular Service";
 import FeedBack from "./components/FeedBack";
 import Story from "./components/Story";
 import Guide from "./components/Guide";
+import Cloud from "./components/Cloud/index.jsx";
 import Deploys from "./components/Deploys"
 import Products from "./components/Products"
 import ScrollTop from "./components/ScrollTop.jsx"
@@ -20,7 +21,7 @@ function App() {
   return (
     <>
       <Router>
-        <ScrollTop/>
+        <ScrollTop />
         <Routes>
           <Route path="/" element={<div className="overflow-x-hidden ">
             <Header />
@@ -43,18 +44,24 @@ function App() {
               <Footer />
             </div>
           </>} />
-          <Route path="/fibre-internet" element={<>            
-          <div className="overflow-x-hidden ">
-            <Header />
-            <Fibre />
-            <Footer />
-          </div></>} />
-          <Route  path="/order-form" element={<>            
-          <div className="overflow-x-hidden ">
-            <Header />
-            <Form />
-            <Footer />
-          </div></>}/>
+          <Route path="/fibre-internet" element={<>
+            <div className="overflow-x-hidden ">
+              <Header />
+              <Fibre />
+              <Footer />
+            </div></>} />
+          <Route path="/order-form" element={<>
+            <div className="overflow-x-hidden ">
+              <Header />
+              <Form />
+              <Footer />
+            </div></>} />
+          <Route path="/cloud-solution" element={<>
+            <div className="overflow-x-hidden ">
+              <Header/>
+              <Cloud/>
+              <Footer/>
+            </div></>} />
         </Routes>
       </Router>
     </>
