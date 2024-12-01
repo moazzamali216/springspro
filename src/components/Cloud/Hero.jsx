@@ -16,7 +16,7 @@ const Hero = () => {
        Learn How
     </button>
     <button
-  className="text-black hover:text-black bg-transparent hover:bg-tron-blue transition-all px-6 border-2 border-tron-blue hover:border-black mt-5 inter text-base sm:text-lg py-2.5 rounded-full font-medium tracking-wide"
+  className="text-black hover:text-black bg-transparent hover:bg-tron-blue transition-all px-6 border-2 border-tron-blue hover:border-black md:mt-5 inter text-base sm:text-lg py-2.5 rounded-full font-medium tracking-wide"
 >
   Try VMX Models
 </button>
