@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "../App.css";
-import { gsap } from "gsap";
+
 import tech from "../assets/images/tech.avif";
 // Import the 7 partner images
 import partner1 from "../assets/images/partner1.png";

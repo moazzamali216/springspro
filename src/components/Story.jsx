@@ -11,7 +11,7 @@ const Story = () => {
           <div className="w-full flex flex-col items-center">
           <h1 className="text-5xl work-sans text-center font-medium text-[#3C3C3C]">The journey to success begins in the cloud.</h1>
              <p className="text-center text-gray-700 mt-5 inter font-light">Learn how our customers rely on the power and ease of the Meraki cloud-first platform to get there faster.</p>
-             <a href="" className="text-tron-blue text-center mx-auto mt-4 font-medium">SEE ALL STORIES <i class="fa-solid rotate-180 fa-angle-left"></i></a>
+             <a href="#" className="text-tron-blue text-center mx-auto mt-4 font-medium">SEE ALL STORIES <i class="fa-solid rotate-180 fa-angle-left"></i></a>
           </div>
            <div className="grid gap-y-16 gap-10   mt-8 grid-cols-1 md:grid-cols-2">
            <div>
