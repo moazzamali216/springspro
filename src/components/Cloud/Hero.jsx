@@ -4,14 +4,14 @@ import hero from "../../assets/images/hero-img.png"; // Make sure the path is co
 const Hero = () => {
   return (
     <>
-<div className=" container   mx-auto ">
+<div className=" container pb-10  mx-auto ">
 <div className="overflow-hidden container md:flex-row  gap-x-4 flex-col px-4 xl:px-[120px] mx-auto w-full flex md:pt-[140px] pt-[120px] md:h-[500px] lg:h-[700px]">
 
  <div className="h-full flex flex-col  lg:pr-8 xl:pr-16   justify-center  w-full md:w-1/2">
  <h1  className="  leading-[50px] text-[#3C3C3C] lg:leading-[60px] text-[35px] lg:text-[50px] mt-5 font-poppins font-[425] ">Efficiently scale cloud experiences everywhere.</h1>
  <p className=" text-[#3C3C3C] mt-7 text-base work-sans">Rapidly deploy secure on-premises and cloud technology services across your entire network.</p>
 
- <div className="flex gap-4 items-center">
+ <div className="flex flex-wrap gap-4 items-center">
     <button className="text-black hover:border-black hover:bg-transparent transition-all bg-tron-blue px-6 border-2 border-tron-blue mt-5 inter text-base sm:text-lg py-2.5 rounded-full font-medium tracking-wide">
        Learn How
     </button>
