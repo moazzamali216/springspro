@@ -62,8 +62,8 @@ const Slider = () => {
       {/* Main Slider Container */}
       <div className="flex h-[900px] items-center justify-start">
         {/* Content Section */}
-        <div className="absolute bg-white w-full lg:w-[900px] 2xl:w-[55%] flex flex-col justify-center 2xl:pl-[27%] pl-4 sm:pl-[50px] lg:pl-[130px] md:rounded-r-full h-[700px]">
-          <div className="w-[440px]">
+        <div className="absolute bg-white w-full lg:w-[900px] 2xl:w-[55%] flex flex-col justify-center 2xl:pl-[20%] pl-4 sm:pr-0 pr-4 sm:pl-[50px] lg:pl-[130px] md:rounded-r-full h-[700px]">
+          <div className="sm:w-[440px]">
             {/* Main Heading */}
             <div className="text-start">
               <h1 className="text-3xl font-poppins text-[#3C3C3C] font-normal">
