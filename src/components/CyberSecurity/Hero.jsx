@@ -13,9 +13,9 @@ const Hero = () => {
  <h1  className="  leading-[50px] lg:leading-[60px] text-[35px] lg:text-[50px] mt-5 font-poppins font-[425] ">Rapidly protect and optimize at scale.</h1>
  <p className=" text-[#3C3C3C] mt-7 text-base work-sans">Easily deliver the highest security intelligence and a high-quality experience—all while dramatically reducing OpEx.</p>
 
- <div className="flex mt-4 flex-wrap gap-4 items-center">
+ <div className="flex mt-6 flex-wrap gap-4 items-center">
     <button
-  className="text-black hover:text-black bg-transparent hover:bg-tron-blue transition-all px-6 border-2 border-tron-blue hover:border-black md:mt-0 lg:mt-5 inter text-base sm:text-lg py-2.5 rounded-full font-medium tracking-wide"
+  className="text-black hover:text-black bg-transparent hover:bg-tron-blue transition-all px-6 border-2 border-tron-blue hover:border-black  inter text-base sm:text-lg py-2.5 rounded-full font-medium tracking-wide"
 >
   Try VMX Models
 </button>
