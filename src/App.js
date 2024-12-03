@@ -6,6 +6,7 @@ import BillService from "./components/BillService";
 import Network from "./components/Network";
 import Cellular from "./components/Cellular Service";
 import FeedBack from "./components/FeedBack";
+import Cyber from "./components/CyberSecurity/index.jsx";
 import Story from "./components/Story";
 import Guide from "./components/Guide";
 import Cloud from "./components/Cloud/index.jsx";
@@ -61,6 +62,12 @@ function App() {
               <Header/>
               <Cloud/>
               <Footer/>
+            </div></>} />
+            <Route path="/cyber-security" element={<>
+            <div className="overflow-x-hidden ">
+        <Header/>
+        <Cyber/>
+        <Footer/>
             </div></>} />
         </Routes>
       </Router>
