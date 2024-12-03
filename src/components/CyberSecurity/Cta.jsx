@@ -4,7 +4,7 @@ const CTA = () => {
 
     return (
         <>
-         <div className="py-20 bg-blue-400">
+         <div className="py-20 mt-[100px] bg-blue-400">
             <div className="container mx-auto px-4 xl:px-[120px]">
              <div className="w-full flex flex-col items-center">
                 <img src={img} className="w-full max-w-[480px] mt-[-100px]" alt="" />
