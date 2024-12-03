@@ -8,6 +8,8 @@ import Accordion from "./Accordin";
 import Location from "./Location";
 import Resource from "./Resource";
 import ProReactive from "./ProReactive";
+import CTA from "./Cta";
+import Products from "./Products";
 import Slider from "./Slider";
 import Structure from "../Cellular Service/Structure";
 const Cyber = () => {
@@ -24,6 +26,8 @@ const Cyber = () => {
 <Resource/>
 <Location/>
 <Slider/>
+<Products/>
+<CTA/>
 </>
 
 )}
