@@ -78,3 +78,9 @@ left:0 !important;
   background-size: cover;
   background-image: url("./assets/images/backgroundgrains.png");
 }
+.women_group{
+  background-repeat:  no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-image: url("./assets/images/womengroup.avif");
+}

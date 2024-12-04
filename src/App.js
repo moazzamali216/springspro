@@ -3,6 +3,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import Tags from "./components/Tag";
 import BillService from "./components/BillService";
+import Internet from "./components/Internet/index.jsx";
 import Network from "./components/Network";
 import Cellular from "./components/Cellular Service";
 import FeedBack from "./components/FeedBack";
@@ -22,10 +23,10 @@ function App() {
   return (
     <>
       <Router>
+        <Header />
         <ScrollTop />
         <Routes>
           <Route path="/" element={<div className="overflow-x-hidden ">
-            <Header />
             <Hero />
             <Tags />
             <Network />
@@ -36,40 +37,46 @@ function App() {
             <Deploys />
             <Products />
             <Technology />
-            <Footer />
           </div>} />
           <Route path="/cellular-service" element={<>
             <div className="overflow-x-hidden ">
-              <Header />
+
               <Cellular />
-              <Footer />
+
             </div>
           </>} />
           <Route path="/fibre-internet" element={<>
             <div className="overflow-x-hidden ">
-              <Header />
+
               <Fibre />
-              <Footer />
+
             </div></>} />
           <Route path="/order-form" element={<>
             <div className="overflow-x-hidden ">
-              <Header />
+
               <Form />
-              <Footer />
+
             </div></>} />
           <Route path="/cloud-solution" element={<>
             <div className="overflow-x-hidden ">
-              <Header/>
-              <Cloud/>
-              <Footer/>
+
+              <Cloud />
+
             </div></>} />
-            <Route path="/cyber-security" element={<>
+          <Route path="/cyber-security" element={<>
             <div className="overflow-x-hidden ">
-        <Header/>
-        <Cyber/>
-        <Footer/>
+
+              <Cyber />
+
+            </div></>} />
+            <Route path="/internet-wan" element={<>
+            <div className="overflow-x-hidden ">
+
+              <Internet />
+
             </div></>} />
         </Routes>
+        <Footer />
       </Router>
     </>
   );
