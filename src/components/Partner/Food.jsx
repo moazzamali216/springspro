@@ -5,8 +5,8 @@ const Food = () => {
   return (
     <>
       <div className="py-16">
-        <div className="w-full h-[750px] sm:h-[750px] business">
-          <div className="flex h-[750px] sm:h-[750px] w-full items-center">
+        <div className="w-full h-[850px] sm:h-[750px] business">
+          <div className="flex h-[850px] sm:h-[750px] w-full items-center">
             <div className="bg-white rounded-xl md:rounded-l-none px-4 md:pr-0  md:pl-16 py-20 w-full mx-4 md:mx-0 shadow-2xl max-w-[900px] md:rounded-r-full  ">
               <div className={`h-full  flex flex-col justify-center   w-full md:w-1/2`}>
               <img src={cbst} className="w-[100px]" alt="" />
