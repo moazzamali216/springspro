@@ -15,6 +15,7 @@ import Deploys from "./components/Deploys"
 import Products from "./components/Products"
 import ScrollTop from "./components/ScrollTop.jsx"
 import Technology from "./components/Technology";
+import Business from "./components/Partner/index.jsx"
 import Footer from "./components/Footer";
 import Fibre from "./components/Fibre";
 import Form from "./components/Form/index.tsx";
@@ -73,6 +74,12 @@ function App() {
             <div className="overflow-x-hidden ">
 
               <Internet />
+
+            </div></>} />
+            <Route path="/business-voice" element={<>
+            <div className="overflow-x-hidden ">
+
+              <Business />
 
             </div></>} />
         </Routes>
