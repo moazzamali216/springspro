@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, FormEvent } from "react";
 import { useForm, ValidationError } from "@formspree/react";
 
@@ -13,34 +15,33 @@ const Form: React.FC = () => {
     paperless: string;
     specialinstruction: string;
     businesslegalname: string;
-    businessaddress: string,
-    businesscity: string,
-    businessstate: string,
-    businesszip: string,
-    taxid: string,
-    locationid: string,
-    contactname: string,
-    contactphone: string,
-    contactemail: string,
-    billtomobile: string,
-    creditcardpayment: string,
-    singleormultiaddresshipment: string,
-    attentionname: string,
-    shippingaddress: string,
-    shippingcity: string,
-    shippingstate: string,
-    shippingzip: string,
-    currentwirelesscarrier: string,
-    accountnumber:string,
-    pinorpassword:string,
-    ssnortaxid:string,
-    billingname:string,
-    billingaddress:string,
-    billingcity:string,
-    billingstate:string,
-    billingzip:string,
-    authorizedname:string,
-
+    businessaddress: string;
+    businesscity: string;
+    businessstate: string;
+    businesszip: string;
+    taxid: string;
+    locationid: string;
+    contactname: string;
+    contactphone: string;
+    contactemail: string;
+    billtomobile: string;
+    creditcardpayment: string;
+    singleormultiaddresshipment: string;
+    attentionname: string;
+    shippingaddress: string;
+    shippingcity: string;
+    shippingstate: string;
+    shippingzip: string;
+    currentwirelesscarrier: string;
+    accountnumber: string;
+    pinorpassword: string;
+    ssnortaxid: string;
+    billingname: string;
+    billingaddress: string;
+    billingcity: string;
+    billingstate: string;
+    billingzip: string;
+    authorizedname: string;
   }>({
     sellername: "",
     attuid: "",
@@ -62,27 +63,28 @@ const Form: React.FC = () => {
     contactemail: "",
     billtomobile: "",
     attentionname: "",
-    creditcardpayment: "", singleormultiaddresshipment: "",
+    creditcardpayment: "",
+    singleormultiaddresshipment: "",
     shippingaddress: "",
     shippingcity: "",
     shippingstate: "",
     shippingzip: "",
     currentwirelesscarrier: "",
-    accountnumber:"",
-    pinorpassword:"",
-    ssnortaxid:"",
-    billingname:"",
-    billingaddress:"",
-    billingcity:"",
-    billingstate:"",
-    billingzip:"",
-    authorizedname:"",
+    accountnumber: "",
+    pinorpassword: "",
+    ssnortaxid: "",
+    billingname: "",
+    billingaddress: "",
+    billingcity: "",
+    billingstate: "",
+    billingzip: "",
+    authorizedname: "",
   });
 
-
   const [errors, setErrors] = useState<string[]>([]);
-  const [state, handleSubmit] = useForm("mjkvpzqz");
+  const [state, handleSubmit] = useForm("xanykyav");
 
+  // Update form data state on input change
   const handleChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
@@ -91,56 +93,30 @@ const Form: React.FC = () => {
     setErrors([]); // Clear errors on change
   };
 
+  // Combine all fields into a single string
+  const getCombinedData = () => {
+    return Object.entries(formData)
+      .map(([key, value]) => `${key}: ${value}`)
+      .join("\n"); // Newline separator for each field
+  };
+
   const validateCurrentStep = (): boolean => {
     const missingFields: string[] = [];
 
-    switch (step) {
-      case 1:
-        if (!formData.sellername.trim()) missingFields.push("Seller Name");
-        if (!formData.attuid.trim()) missingFields.push("Email");
-        if (!formData.bestcontactseller.trim()) missingFields.push("Phone");
-        break;
-      case 2:
-        if (!formData.agreementtype.trim()) missingFields.push("Agreement Type");
-        if (!formData.promotion.trim()) missingFields.push("Promotion");
-        if (!formData.promotion.trim()) missingFields.push("PaperLess Billing");
-        if (!formData.promotion.trim()) missingFields.push("Special Instruction");
+    // Step-specific required fields
+    const stepFields: { [key: number]: string[] } = {
+      1: ["sellername", "attuid", "bestcontactseller"],
+      2: ["businesslegalname", "businessaddress", "businesscity"],
+      3: ["shippingaddress", "shippingcity", "shippingstate"],
+    };
 
-        if (formData.agreementtype === "bye" && !formData.eip.trim()) {
-          missingFields.push("EIP Limit (Required for ACDA Attainment/MAC)");
-        }
-        break;
-      case 3:
-        if (!formData.businesslegalname.trim()) missingFields.push("Business Legal Name");
-        if (!formData.businessaddress.trim()) missingFields.push("Business Address");
-        if (!formData.businesscity.trim()) missingFields.push("Business City");
-        if (!formData.businessstate.trim()) missingFields.push("Business State");
-        if (!formData.businesszip.trim()) missingFields.push("Business ZIP");
-        if (!formData.locationid.trim()) missingFields.push("Location ID");
-        if (!formData.contactname.trim()) missingFields.push("Contact Name");
-        if (!formData.contactphone.trim()) missingFields.push("Contact Phone");
-        if (!formData.contactemail.trim()) missingFields.push("Contact Email");
-        break;
-      case 4:
-        if (!formData.billtomobile.trim()) missingFields.push("Bill to Mobile");
-        if (!formData.creditcardpayment.trim()) missingFields.push("Credit Card Payment");
-        break;
-      case 5:
-        if (!formData.singleormultiaddresshipment.trim()) missingFields.push("Single or Multiple Address Shipment");
-        if (!formData.attentionname.trim()) missingFields.push("Attention Name");
-        if (!formData.shippingaddress.trim()) missingFields.push("Shipping Address");
-        if (!formData.shippingcity.trim()) missingFields.push("Shipping City");
-        if (!formData.shippingstate.trim()) missingFields.push("Shipping State");
-        if (!formData.shippingzip.trim()) missingFields.push("Shipping ZIP");
-
-
-
-
-
-   break;
-      default:
-        break;
-    }
+    // Check for missing fields in the current step
+    const requiredFields = stepFields[step] || [];
+    requiredFields.forEach((field) => {
+      if (!formData[field]) {
+        missingFields.push(field);
+      }
+    });
 
     if (missingFields.length > 0) {
       setErrors([
@@ -166,8 +142,8 @@ const Form: React.FC = () => {
   const onSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (validateCurrentStep()) {
-      console.log(formData); // For debugging: Check the form data
-      handleSubmit(formData); // Send formData to Formspree
+      const combinedData = getCombinedData(); // Combine all data
+      handleSubmit({ combinedData }); // Send combined string to Formspree
     }
   };
 
@@ -207,16 +183,16 @@ const Form: React.FC = () => {
         <form onSubmit={onSubmit} className="max-w-2xl mx-auto space-y-6">
           {step === 1 && (
             <div>
-              <h3 className="text-xl text-gray-800 font-semibold mb-4">
+              <h3 className="text-xl text-gray-800 font-semibold mb-4 sm:text-center text-start">
                 AT&T Seller Information
               </h3>
               <div className="grid grid-cols-1 mt-10 md:grid-cols-3 gap-4">
                 <div className="w-full">
-                  <h6 className="text-[#3C3C3C]">Name</h6>
+                  <h6 className="text-[#3C3C3C] sm:text-center text-start">Name</h6>
                   <input
                     type="text"
                     name="sellername"
-                    placeholder="Name*"
+                    placeholder="Name"
                     value={formData.sellername}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
@@ -224,19 +200,19 @@ const Form: React.FC = () => {
                 </div>
 
                 <div>
-                  <h6 className="text-[#3C3C3C]">Email</h6>
+                  <h6 className="text-[#3C3C3C] sm:text-center text-start">Email</h6>
 
                   <input
                     type="text"
                     name="attuid"
-                    placeholder="Email*"
+                    placeholder="Email"
                     value={formData.attuid}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
                   />
                 </div>
                 <div>
-                  <h6 className="text-[#3C3C3C]">Phone</h6>
+                  <h6 className="text-[#3C3C3C] sm:text-center text-start">Phone</h6>
 
                   <input
                     name="bestcontactseller"
@@ -258,7 +234,7 @@ const Form: React.FC = () => {
 
           {step === 2 && (
             <>
-              <h3 className="text-xl text-gray-800 font-semibold mb-4">
+              <h3 className="text-xl text-gray-800 font-semibold mb-4 sm:text-center text-start">
                 AT&T Account Option
               </h3>
               <div className="grid grid-cols-1 mt-10 md:grid-cols-3 gap-4">
@@ -289,8 +265,8 @@ const Form: React.FC = () => {
                   className="border-b border-gray-300 py-2"
                 >
                   <option value="">Promotions</option>
-                  <option value="amb">Accepted</option>
-                  <option value="acda">Expected</option>
+                  <option value="accepted">Accepted</option>
+                  <option value="expected">Expected</option>
                 </select>
 
                 {/* Paperless Billing Section */}
@@ -334,16 +310,16 @@ const Form: React.FC = () => {
 
           {step === 3 && (
             <div>
-              <h3 className="text-xl text-gray-800 font-semibold mb-4">
+              <h3 className="text-xl text-gray-800 font-semibold mb-4 sm:text-center text-start">
                 AT&T Account Information
               </h3>
               <div className="grid grid-cols-1 mt-10 md:grid-cols-3 gap-4">
                 <div className="mb-4">
-                  <h6 className="text-sm font-medium text-gray-700">Business Legal Name</h6>
+                  <h6 className="text-sm md:text-center text-start font-medium text-gray-700">Business Legal Name</h6>
                   <input
                     type="text"
                     name="businesslegalname"
-                    placeholder="Enter Business Legal Name*"
+                    placeholder="Enter Business Legal Name"
                     value={formData.businesslegalname}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
@@ -351,11 +327,11 @@ const Form: React.FC = () => {
                 </div>
 
                 <div className="mb-4">
-                  <h6 className="text-sm font-medium text-gray-700">Business Address</h6>
+                  <h6 className="text-sm md:text-center text-start font-medium text-gray-700">Business Address</h6>
                   <input
                     type="text"
                     name="businessaddress"
-                    placeholder="Enter Business Address*"
+                    placeholder="Enter Business Address"
                     value={formData.businessaddress}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
@@ -363,7 +339,7 @@ const Form: React.FC = () => {
                 </div>
 
                 <div className="mb-4">
-                  <h6 className="text-sm font-medium text-gray-700">Business City</h6>
+                  <h6 className="text-sm md:text-center text-start font-medium text-gray-700">Business City</h6>
                   <input
                     type="text"
                     name="businesscity"
@@ -375,7 +351,7 @@ const Form: React.FC = () => {
                 </div>
 
                 <div className="mb-4">
-                  <h6 className="text-sm font-medium text-gray-700">Business State</h6>
+                  <h6 className="text-sm md:text-center text-start font-medium text-gray-700">Business State</h6>
                   <input
                     type="text"
                     name="businessstate"
@@ -387,7 +363,7 @@ const Form: React.FC = () => {
                 </div>
 
                 <div className="mb-4">
-                  <h6 className="text-sm font-medium text-gray-700">Business Zip</h6>
+                  <h6 className="text-sm md:text-center text-start font-medium text-gray-700">Business Zip</h6>
                   <input
                     type="text"
                     name="businesszip"
@@ -399,7 +375,7 @@ const Form: React.FC = () => {
                 </div>
 
                 <div className="mb-4">
-                  <h6 className="text-sm font-medium text-gray-700">Tax ID</h6>
+                  <h6 className="text-sm md:text-center text-start font-medium text-gray-700">Tax ID</h6>
                   <input
                     type="text"
                     name="taxid"
@@ -411,7 +387,7 @@ const Form: React.FC = () => {
                 </div>
 
                 <div className="mb-4">
-                  <h6 className="text-sm font-medium text-gray-700">Contact Name</h6>
+                  <h6 className="text-sm md:text-center text-start font-medium text-gray-700">Contact Name</h6>
                   <input
                     type="text"
                     name="contactname"
@@ -423,7 +399,7 @@ const Form: React.FC = () => {
                 </div>
 
                 <div className="mb-4">
-                  <h6 className="text-sm font-medium text-gray-700">Contact Phone</h6>
+                  <h6 className="text-sm md:text-center text-start font-medium text-gray-700">Contact Phone</h6>
                   <input
                     type="text"
                     name="contactphone"
@@ -435,7 +411,7 @@ const Form: React.FC = () => {
                 </div>
 
                 <div className="mb-4">
-                  <h6 className="text-sm font-medium text-gray-700">Contact Email</h6>
+                  <h6 className="text-sm md:text-center text-start font-medium text-gray-700">Contact Email</h6>
                   <input
                     type="email"
                     name="contactemail"
@@ -447,7 +423,7 @@ const Form: React.FC = () => {
                 </div>
 
                 <div className="mb-4">
-                  <h6 className="text-sm font-medium text-gray-700">Location ID</h6>
+                  <h6 className="text-sm md:text-center text-start font-medium text-gray-700">Location ID</h6>
                   <input
                     type="text"
                     name="locationid"
@@ -463,7 +439,7 @@ const Form: React.FC = () => {
           )}
           {step === 4 && (
             <div>
-              <h3 className="text-xl text-gray-800 font-semibold mb-4">
+              <h3 className="text-xl text-gray-800 font-semibold mb-4 sm:text-center text-start">
                 Order Payment Options
               </h3>
               <div className="grid grid-cols-1 mt-10 md:grid-cols-3 gap-4">
@@ -493,7 +469,7 @@ const Form: React.FC = () => {
 
           {step === 5 && (
             <div>
-              <h3 className="text-xl text-gray-800 font-semibold mb-4">
+              <h3 className="text-xl text-gray-800 font-semibold mb-4 sm:text-center text-start">
                 Order Shipping Information
               </h3>
               <div className="grid grid-cols-1 mt-10 md:grid-cols-3 gap-4">
@@ -508,7 +484,7 @@ const Form: React.FC = () => {
                   <option value="no">Multiple Shipment Address</option>
                 </select>
                 <div className="mb-4">
-                  <h6 className="text-sm font-medium text-gray-700">Attention Name</h6>
+                  <h6 className="text-sm md:text-center text-start font-medium text-gray-700">Attention Name</h6>
                   <input
                     type="text"
                     name="attentionname"
@@ -520,7 +496,7 @@ const Form: React.FC = () => {
                 </div>
 
                 <div className="mb-4">
-                  <h6 className="text-sm font-medium text-gray-700">Shipping Address</h6>
+                  <h6 className="text-sm md:text-center text-start font-medium text-gray-700">Shipping Address</h6>
                   <input
                     type="text"
                     name="shippingaddress"
@@ -532,7 +508,7 @@ const Form: React.FC = () => {
                 </div>
 
                 <div className="mb-4">
-                  <h6 className="text-sm font-medium text-gray-700">Shipping City</h6>
+                  <h6 className="text-sm md:text-center text-start font-medium text-gray-700">Shipping City</h6>
                   <input
                     type="text"
                     name="shippingcity"
@@ -544,7 +520,7 @@ const Form: React.FC = () => {
                 </div>
 
                 <div className="mb-4">
-                  <h6 className="text-sm font-medium text-gray-700">Shipping State</h6>
+                  <h6 className="text-sm md:text-center text-start font-medium text-gray-700">Shipping State</h6>
                   <input
                     type="text"
                     name="shippingstate"
@@ -556,7 +532,7 @@ const Form: React.FC = () => {
                 </div>
 
                 <div className="mb-4">
-                  <h6 className="text-sm font-medium text-gray-700">Shipping Zip</h6>
+                  <h6 className="text-sm md:text-center text-start font-medium text-gray-700">Shipping Zip</h6>
                   <input
                     type="text"
                     name="shippingzip"
@@ -573,12 +549,12 @@ const Form: React.FC = () => {
 
           {step === 6 && (
             <div>
-              <h3 className="text-xl text-gray-800 font-semibold mb-4">
+              <h3 className="text-xl text-gray-800 font-semibold mb-4 sm:text-center text-start">
                 Carrier Port Information
               </h3>
               <div className="grid grid-cols-1 mt-10 md:grid-cols-2 gap-4">
                 <div className="mb-4">
-                  <h6>Current Wireless Carrier</h6>
+                  <h6 className="text-start md:text-center">Current Wireless Carrier</h6>
                   <input
                     type="text"
                     name="currentwirelesscarrier"
@@ -589,7 +565,7 @@ const Form: React.FC = () => {
                   />
                 </div>
                 <div className="mb-4">
-                  <h6>Account Number</h6>
+                  <h6 className="text-start md:text-center">Account Number</h6>
                   <input
                     type="text"
                     name="accountnumber"
@@ -600,7 +576,7 @@ const Form: React.FC = () => {
                   />
                 </div>
                 <div className="mb-4">
-                  <h6>Pin or Password</h6>
+                  <h6 className="text-start md:text-center">Pin or Password</h6>
                   <input
                     type="text"
                     name="pinorpassword"
@@ -612,7 +588,7 @@ const Form: React.FC = () => {
                   
                 </div>
                 <div className="mb-4">
-                  <h6>SSN or TaxID</h6>
+                  <h6 className="text-start md:text-center">SSN or TaxID</h6>
                   <input
                     type="text"
                     name="ssnortaxid"
@@ -625,7 +601,7 @@ const Form: React.FC = () => {
                 </div>
 
                 <div className="mb-4">
-                  <h6>Billing Name</h6>
+                  <h6 className="text-start md:text-center">Billing Name</h6>
                   <input
                     type="text"
                     name="billingname"
@@ -637,7 +613,7 @@ const Form: React.FC = () => {
                   
                 </div>
                 <div className="mb-4">
-                  <h6>Billing Address</h6>
+                  <h6 className="text-start md:text-center">Billing Address</h6>
                   <input
                     type="text"
                     name="billingaddress"
@@ -649,7 +625,7 @@ const Form: React.FC = () => {
                   
                 </div>
                 <div className="mb-4">
-                  <h6>Billing City</h6>
+                  <h6 className="text-start md:text-center">Billing City</h6>
                   <input
                     type="text"
                     name="billingcity"
@@ -661,7 +637,7 @@ const Form: React.FC = () => {
                   
                 </div>
                 <div className="mb-4">
-                  <h6>Billing State</h6>
+                  <h6  className="text-start md:text-center">Billing State</h6>
                   <input
                     type="text"
                     name="billingstate"
@@ -673,7 +649,7 @@ const Form: React.FC = () => {
                   
                 </div>
                 <div className="mb-4">
-                  <h6>Billing Zip</h6>
+                  <h6 className="text-start md:text-center">Billing Zip</h6>
                   <input
                     type="text"
                     name="billingzip"
@@ -685,7 +661,7 @@ const Form: React.FC = () => {
                   
                 </div>
                 <div className="mb-4">
-                  <h6>Authorized Name</h6>
+                  <h6 className="text-start md:text-center">Authorized Name</h6>
                   <input
                     type="text"
                     name="authorizedname"
