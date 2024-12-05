@@ -64,13 +64,7 @@ const Header = () => {
               <a href="">General Partner</a>
               <a href="">New Partner</a>
             </div>
-            <div>
-              <div className="inter font-light text-sm gap-2 flex items-baseline">
-                <i className="fa-solid text-tron-blue fa-globe"></i>
-                <h4 className="text-gray-600">United States (English)</h4>
-                <i className="fa-solid text-tron-blue fa-caret-down"></i>
-              </div>
-            </div>
+
             <div className="flex items-center gap-4">
               <a className="font-light inter text-gray-600 text-sm" href="">Contact Us</a>
               <a className="font-light inter text-gray-600 text-sm" href="">Log In</a>
