@@ -6,9 +6,9 @@ import { useForm, ValidationError } from "@formspree/react";
 const Form: React.FC = () => {
   const [step, setStep] = useState<number>(1);
   const [formData, setFormData] = useState<{
-    sellername: string;
-    attuid: string;
-    bestcontactseller: string;
+    name: string;
+    email: string;
+    phonenumber: string;
     agreementtype: string;
     eip: string;
     promotion: string;
@@ -43,9 +43,9 @@ const Form: React.FC = () => {
     billingzip: string;
     authorizedname: string;
   }>({
-    sellername: "",
-    attuid: "",
-    bestcontactseller: "",
+    name: "",
+    email: "",
+    phonenumber: "",
     agreementtype: "",
     eip: "",
     promotion: "",
@@ -99,24 +99,77 @@ const Form: React.FC = () => {
       .map(([key, value]) => `${key}: ${value}`)
       .join("\n"); // Newline separator for each field
   };
-
   const validateCurrentStep = (): boolean => {
     const missingFields: string[] = [];
+    // Add validation logic for required fields for each step
+    // For example:
+    if (step === 1 && !formData.name) missingFields.push("Name");
+    if (step === 1 && !formData.email) missingFields.push("Email");
+    if (step === 1 && !formData.phonenumber) missingFields.push("Phone Number");
+    if (step === 2&& !formData.agreementtype) missingFields.push("Agreement Type");
+    if (step === 2&& !formData.promotion) missingFields.push("Promotion");
+    if (step === 2&& !formData.paperless) missingFields.push("PaperLess");
+    if (step === 2&& !formData.specialinstruction) missingFields.push("Special Instruction");
+    if (step === 3&& !formData.businesslegalname) missingFields.push("Business Legal Name");
+    if (step === 3&& !formData.businessaddress) missingFields.push("Business Address")
+    if (step === 3&& !formData.businesscity) missingFields.push("Business City");
+    if (step === 3&& !formData.businessstate) missingFields.push("Business State");
+    if (step === 3&& !formData.taxid) missingFields.push("TaxID");
+    if (step === 3&& !formData.businesszip) missingFields.push("Business Zip");
+    if (step === 3&& !formData.locationid) missingFields.push("LocationID");
+    if (step === 3&& !formData.contactname) missingFields.push("Contact Name");
+    if (step === 3&& !formData.contactemail) missingFields.push("Contact Email");
+    if (step === 3&& !formData.contactphone) missingFields.push("Contact Phone");
+    if (step === 4&& !formData.billtomobile) missingFields.push("Bill to Mobile");
+    if (step === 4&& !formData.creditcardpayment) missingFields.push("Credit Card Payement");
+    if (step === 5&& !formData.singleormultiaddresshipment) missingFields.push("Single or Multi Address Shipment");
+    if (step === 5&& !formData.attentionname) missingFields.push("Attention Name");
+    if (step === 5&& !formData.shippingaddress) missingFields.push("Shipping Address");
+    if (step === 5&& !formData.shippingcity) missingFields.push("Shipping City");
+    if (step === 5&& !formData.shippingstate) missingFields.push("Shipping State");
+    if (step === 5&& !formData.shippingzip) missingFields.push("Shipping Zip");
+    if (step === 6&& !formData.currentwirelesscarrier) missingFields.push("Current Wireless Carrier");
+    if (step === 6&& !formData.accountnumber) missingFields.push("Account Number");
+    if (step === 6&& !formData.pinorpassword) missingFields.push("Pin or Password");
+    if (step === 6&& !formData.ssnortaxid) missingFields.push("SSN or TaxID");
+    if (step === 6&& !formData.billingname) missingFields.push("Billing Name");
+    if (step === 6&& !formData.billingaddress) missingFields.push("Billing Address");
+    if (step === 6&& !formData.billingcity) missingFields.push("Billing City");
+    if (step === 6&& !formData.billingstate) missingFields.push("Billing State");
+    if (step === 6&& !formData.billingzip) missingFields.push("Biling Zip");
+    if (step === 6&& !formData.authorizedname) missingFields.push("Authorized Name");
 
-    // Step-specific required fields
-    const stepFields: { [key: number]: string[] } = {
-      1: ["sellername", "attuid", "bestcontactseller"],
-      2: ["businesslegalname", "businessaddress", "businesscity"],
-      3: ["shippingaddress", "shippingcity", "shippingstate"],
-    };
 
-    // Check for missing fields in the current step
-    const requiredFields = stepFields[step] || [];
-    requiredFields.forEach((field) => {
-      if (!formData[field]) {
-        missingFields.push(field);
-      }
-    });
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+    ;
+
+
+    
+
+
+
+
+    // Add more step-specific validation as needed
 
     if (missingFields.length > 0) {
       setErrors([
@@ -191,9 +244,9 @@ const Form: React.FC = () => {
                   <h6 className="text-[#3C3C3C] sm:text-center text-start">Name</h6>
                   <input
                     type="text"
-                    name="sellername"
+                    name="name"
                     placeholder="Name"
-                    value={formData.sellername}
+                    value={formData.name}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
                   />
@@ -204,9 +257,9 @@ const Form: React.FC = () => {
 
                   <input
                     type="text"
-                    name="attuid"
+                    name="email"
                     placeholder="Email"
-                    value={formData.attuid}
+                    value={formData.email}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
                   />
@@ -215,9 +268,9 @@ const Form: React.FC = () => {
                   <h6 className="text-[#3C3C3C] sm:text-center text-start">Phone</h6>
 
                   <input
-                    name="bestcontactseller"
+                    name="phonenumber"
                     placeholder="Phone"
-                    value={formData.bestcontactseller}
+                    value={formData.phonenumber}
                     onChange={handleChange}
                     className="w-full  border-b border-gray-300 py-2"
                   />
