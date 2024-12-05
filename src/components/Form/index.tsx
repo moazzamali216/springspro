@@ -290,12 +290,12 @@ const Form: React.FC = () => {
               <h3 className="text-xl text-gray-800 font-semibold mb-4 sm:text-center text-start">
                 AT&T Account Option
               </h3>
-              <div className="grid grid-cols-1 mt-10 md:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 items-end mt-10 md:grid-cols-3 gap-4">
                 <select
                   name="agreementtype"
                   value={formData.agreementtype}
                   onChange={handleChange}
-                  className="border-b border-gray-300 "
+                  className="border-b h-10 border-gray-300 "
                 >
                   <option value="">Select Agreement Type</option>
                   <option value="amb">AMB</option>
@@ -315,7 +315,7 @@ const Form: React.FC = () => {
                   name="promotion"
                   value={formData.promotion}
                   onChange={handleChange}
-                  className="border-b border-gray-300 py-2"
+                  className="border-b h-10 border-gray-300 py-2"
                 >
                   <option value="">Promotions</option>
                   <option value="accepted">Accepted</option>
@@ -495,12 +495,12 @@ const Form: React.FC = () => {
               <h3 className="text-xl text-gray-800 font-semibold mb-4 sm:text-center text-start">
                 Order Payment Options
               </h3>
-              <div className="grid grid-cols-1 mt-10 md:grid-cols-3 gap-4">
+              <div className="grid items-end grid-cols-1 mt-10 md:grid-cols-3 gap-4">
                 <select
                   name="billtomobile"
                   value={formData.billtomobile}
                   onChange={handleChange}
-                  className="border-b border-gray-300 py-2"
+                  className="border-b h-10 border-gray-300 py-2"
                 >
                   <option value="">Bill to Mobile</option>
                   <option value="yes">Yes</option>
@@ -510,7 +510,7 @@ const Form: React.FC = () => {
                   name="creditcardpayment"
                   value={formData.creditcardpayment}
                   onChange={handleChange}
-                  className="border-b border-gray-300 py-2"
+                  className="border-b h-10 border-gray-300 py-2"
                 >
                   <option value="">Credit Card Payement?</option>
                   <option value="yes">Yes</option>
