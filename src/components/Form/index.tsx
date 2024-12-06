@@ -245,7 +245,7 @@ const Form: React.FC = () => {
                   <input
                     type="text"
                     name="name"
-                    placeholder="Name"
+                    placeholder="Enter Name"
                     value={formData.name}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
@@ -258,7 +258,7 @@ const Form: React.FC = () => {
                   <input
                     type="text"
                     name="email"
-                    placeholder="Email"
+                    placeholder="Enter Email"
                     value={formData.email}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
@@ -269,7 +269,7 @@ const Form: React.FC = () => {
 
                   <input
                     name="phonenumber"
-                    placeholder="Phone"
+                    placeholder="Enter Phone"
                     value={formData.phonenumber}
                     onChange={handleChange}
                     className="w-full  border-b border-gray-300 py-2"
@@ -305,7 +305,7 @@ const Form: React.FC = () => {
                 {formData.agreementtype === "acda" && (
                   <input
                     name="eip"
-                    placeholder="What EIP Limit is needed"
+                    placeholder="Enter What EIP Limit is needed"
                     value={formData.eip}
                     onChange={handleChange}
                     className="w-full mt-4 border-b border-gray-300 py-2"
@@ -372,7 +372,7 @@ const Form: React.FC = () => {
                   <input
                     type="text"
                     name="businesslegalname"
-                    placeholder="Enter Business Legal Name"
+                    placeholder="Enter Enter Business Legal Name"
                     value={formData.businesslegalname}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
@@ -384,7 +384,7 @@ const Form: React.FC = () => {
                   <input
                     type="text"
                     name="businessaddress"
-                    placeholder="Enter Business Address"
+                    placeholder="Enter Enter Business Address"
                     value={formData.businessaddress}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
@@ -396,7 +396,7 @@ const Form: React.FC = () => {
                   <input
                     type="text"
                     name="businesscity"
-                    placeholder="Enter Business City"
+                    placeholder="Enter Enter Business City"
                     value={formData.businesscity}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
@@ -408,7 +408,7 @@ const Form: React.FC = () => {
                   <input
                     type="text"
                     name="businessstate"
-                    placeholder="Enter Business State"
+                    placeholder="Enter Enter Business State"
                     value={formData.businessstate}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
@@ -420,7 +420,7 @@ const Form: React.FC = () => {
                   <input
                     type="text"
                     name="businesszip"
-                    placeholder="Enter Business Zip"
+                    placeholder="Enter Enter Business Zip"
                     value={formData.businesszip}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
@@ -432,7 +432,7 @@ const Form: React.FC = () => {
                   <input
                     type="text"
                     name="taxid"
-                    placeholder="Enter Tax ID"
+                    placeholder="Enter Enter Tax ID"
                     value={formData.taxid}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
@@ -444,7 +444,7 @@ const Form: React.FC = () => {
                   <input
                     type="text"
                     name="contactname"
-                    placeholder="Enter Contact Name"
+                    placeholder="Enter Enter Contact Name"
                     value={formData.contactname}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
@@ -456,7 +456,7 @@ const Form: React.FC = () => {
                   <input
                     type="text"
                     name="contactphone"
-                    placeholder="Enter Contact Phone"
+                    placeholder="Enter Enter Contact Phone"
                     value={formData.contactphone}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
@@ -468,7 +468,7 @@ const Form: React.FC = () => {
                   <input
                     type="email"
                     name="contactemail"
-                    placeholder="Enter Contact Email"
+                    placeholder="Enter Enter Contact Email"
                     value={formData.contactemail}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
@@ -480,7 +480,7 @@ const Form: React.FC = () => {
                   <input
                     type="text"
                     name="locationid"
-                    placeholder="Enter Location ID"
+                    placeholder="Enter Enter Location ID"
                     value={formData.locationid}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
@@ -541,7 +541,7 @@ const Form: React.FC = () => {
                   <input
                     type="text"
                     name="attentionname"
-                    placeholder="Enter Attention Name"
+                    placeholder="Enter Enter Attention Name"
                     value={formData.attentionname}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
@@ -553,7 +553,7 @@ const Form: React.FC = () => {
                   <input
                     type="text"
                     name="shippingaddress"
-                    placeholder="Enter Shipping Address"
+                    placeholder="Enter Enter Shipping Address"
                     value={formData.shippingaddress}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
@@ -565,7 +565,7 @@ const Form: React.FC = () => {
                   <input
                     type="text"
                     name="shippingcity"
-                    placeholder="Enter Shipping City"
+                    placeholder="Enter Enter Shipping City"
                     value={formData.shippingcity}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
@@ -577,7 +577,7 @@ const Form: React.FC = () => {
                   <input
                     type="text"
                     name="shippingstate"
-                    placeholder="Enter Shipping State"
+                    placeholder="Enter Enter Shipping State"
                     value={formData.shippingstate}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
@@ -589,7 +589,7 @@ const Form: React.FC = () => {
                   <input
                     type="text"
                     name="shippingzip"
-                    placeholder="Enter Shipping Zip"
+                    placeholder="Enter Enter Shipping Zip"
                     value={formData.shippingzip}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
@@ -611,7 +611,7 @@ const Form: React.FC = () => {
                   <input
                     type="text"
                     name="currentwirelesscarrier"
-                    placeholder="Enter Current Wireless Carrier"
+                    placeholder="Enter Enter Current Wireless Carrier"
                     value={formData.currentwirelesscarrier}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
@@ -622,7 +622,7 @@ const Form: React.FC = () => {
                   <input
                     type="text"
                     name="accountnumber"
-                    placeholder="Enter Account Number"
+                    placeholder="Enter Enter Account Number"
                     value={formData.accountnumber}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
@@ -633,7 +633,7 @@ const Form: React.FC = () => {
                   <input
                     type="text"
                     name="pinorpassword"
-                    placeholder="Enter Pin or Password"
+                    placeholder="Enter Enter Pin or Password"
                     value={formData.pinorpassword}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
@@ -645,7 +645,7 @@ const Form: React.FC = () => {
                   <input
                     type="text"
                     name="ssnortaxid"
-                    placeholder="Enter SSN or Tax ID"
+                    placeholder="Enter Enter SSN or Tax ID"
                     value={formData.ssnortaxid}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
@@ -658,7 +658,7 @@ const Form: React.FC = () => {
                   <input
                     type="text"
                     name="billingname"
-                    placeholder="Enter Billing Name"
+                    placeholder="Enter Enter Billing Name"
                     value={formData.billingname}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
@@ -670,7 +670,7 @@ const Form: React.FC = () => {
                   <input
                     type="text"
                     name="billingaddress"
-                    placeholder="Enter Billing Address"
+                    placeholder="Enter Enter Billing Address"
                     value={formData.billingaddress}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
@@ -682,7 +682,7 @@ const Form: React.FC = () => {
                   <input
                     type="text"
                     name="billingcity"
-                    placeholder="Enter Billing City"
+                    placeholder="Enter Enter Billing City"
                     value={formData.billingcity}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
@@ -694,7 +694,7 @@ const Form: React.FC = () => {
                   <input
                     type="text"
                     name="billingstate"
-                    placeholder="Enter Billing State"
+                    placeholder="Enter Enter Billing State"
                     value={formData.billingstate}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
@@ -706,7 +706,7 @@ const Form: React.FC = () => {
                   <input
                     type="text"
                     name="billingzip"
-                    placeholder="Enter Billing Zip"
+                    placeholder="Enter Enter Billing Zip"
                     value={formData.billingzip}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
@@ -718,7 +718,7 @@ const Form: React.FC = () => {
                   <input
                     type="text"
                     name="authorizedname"
-                    placeholder="Enter Authorized Name"
+                    placeholder="Enter Enter Authorized Name"
                     value={formData.authorizedname}
                     onChange={handleChange}
                     className="border-b focus:outline-none border-gray-300 py-2 w-full"
