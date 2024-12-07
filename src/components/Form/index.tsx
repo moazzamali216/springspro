@@ -140,37 +140,6 @@ const Form: React.FC = () => {
     if (step === 6&& !formData.authorizedname) missingFields.push("Authorized Name");
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-    ;
-
-
-    
-
-
-
-
-    // Add more step-specific validation as needed
-
     if (missingFields.length > 0) {
       setErrors([
         `Step ${step}: Missing the following fields - ${missingFields.join(", ")}`,
