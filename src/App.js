@@ -8,10 +8,10 @@ import Network from "./components/Network";
 import Cellular from "./components/Cellular Service";
 import FeedBack from "./components/FeedBack";
 import Cyber from "./components/CyberSecurity/index.jsx";
+import Iot from "./components/FirstNetIOT/index.jsx";
 import Story from "./components/Story";
 import Guide from "./components/Guide";
 import Cloud from "./components/Cloud/index.jsx";
-import FiverrWidget from "./components/Form/FiverWidget.jsx"
 import Deploys from "./components/Deploys"
 import Products from "./components/Products"
 import ScrollTop from "./components/ScrollTop.jsx"
@@ -29,9 +29,8 @@ function App() {
         <ScrollTop />
         <Routes>
           <Route path="/" element={<div className="overflow-x-hidden ">
-            <Hero />  
+            <Hero />
             <Tags />
-            <FiverrWidget/>
             <Network />
             <BillService />
             <FeedBack />
@@ -82,6 +81,12 @@ function App() {
             <div className="overflow-x-hidden ">
 
               <Business />
+
+            </div></>} />
+            <Route path="/first-net-iot" element={<>
+            <div className="overflow-x-hidden ">
+
+              <Iot/>
 
             </div></>} />
         </Routes>

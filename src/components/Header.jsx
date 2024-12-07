@@ -236,9 +236,11 @@ const Header = () => {
                         <i className='fa-solid mt-1 text-[#393939] fa-cogs'></i> {/* Gear icon for IoT */}
                       </div>
                       <div>
-                        <a className='text-[#393939] text-sm font-semibold tracking-wide'>
+                        <Link to={"/first-net-iot"}
+                            className='text-[#393939] text-sm font-semibold tracking-wide'
+                            onClick={() => handleLinkClick("/cellular-service")}>
                           First Net IoT
-                        </a>
+                        </Link>
                         <p className='text-[14px] mt-1 font-light text-[#606060]'>
                           IoT-driven solutions enabling smarter operations with connected devices, sensors, and real-time data analytics.
                         </p>
