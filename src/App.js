@@ -15,12 +15,15 @@ import Cloud from "./components/Cloud/index.jsx";
 import Deploys from "./components/Deploys"
 import Products from "./components/Products"
 import ScrollTop from "./components/ScrollTop.jsx"
+import BillsAndServices from "./components/BillandServices/index.jsx";
 import Technology from "./components/Technology";
+import Mobility from "./components/FirstNetMobility/index.jsx";
 import Business from "./components/Partner/index.jsx"
 import Footer from "./components/Footer";
 import Fibre from "./components/Fibre";
 import Form from "./components/Form/index.tsx";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 function App() {
   return (
     <>
@@ -87,6 +90,18 @@ function App() {
             <div className="overflow-x-hidden ">
 
               <Iot/>
+
+            </div></>} />
+            <Route path="/first-net-mobility" element={<>
+            <div className="overflow-x-hidden ">
+
+              <Mobility/>
+
+            </div></>} />
+            <Route path="/bills-and-services" element={<>
+            <div className="overflow-x-hidden ">
+
+              <BillsAndServices/>
 
             </div></>} />
         </Routes>

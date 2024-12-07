@@ -46,7 +46,7 @@ const Tabs = () => {
               className="w-full"
             />
           </div>
-          <div className="w-full pl-4  lg:max-w-[380px]">
+          <div className="w-full lg:pl-4  lg:max-w-[380px]">
             <div className="space-y-10  py-20 relative">
               {/* <div className="border-[0.5px] left-[18px] z-0 border-red absolute w-[1px] top-[16px] h-[200px]"></div> */}
               {tabContent.map((tab) => (

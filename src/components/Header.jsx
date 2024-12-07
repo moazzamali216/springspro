@@ -221,9 +221,11 @@ const Header = () => {
                         <i className='fa-solid mt-1 text-[#393939] fa-mobile'></i> {/* Mobile phone icon */}
                       </div>
                       <div>
-                        <a className='text-[#393939] text-sm font-semibold tracking-wide'>
+                      <Link to={"/first-net-mobility"}
+                            className='text-[#393939] text-sm font-semibold tracking-wide'
+                            onClick={() => handleLinkClick("/cellular-service")}>
                           First Net Mobility
-                        </a>
+                        </Link>
                         <p className='text-[14px] mt-1 font-light text-[#606060]'>
                           Seamless and robust mobile connectivity solutions designed to ensure your business stays connected anywhere.
                         </p>
@@ -286,9 +288,13 @@ const Header = () => {
                         <i className='fa-solid mt-1 text-[#393939] fa-file-invoice'></i> {/* Invoice icon */}
                       </div>
                       <div>
-                        <a className='text-[#393939] text-sm font-semibold tracking-wide'>
-                          Bills and Services Analysis
-                        </a>
+                      <Link
+                            to={"/bills-and-services"}
+                            className='text-[#393939] font-semibold text-sm tracking-normal'
+                            onClick={() => handleLinkClick("/fibre-internet")}
+                          >
+                            Bill And Services
+                          </Link>
                         <p className='text-[14px] mt-1 font-light text-[#606060]'>
                           Comprehensive analysis of your business’s billing and service usage to optimize costs and improve efficiency.
                         </p>
