@@ -15,7 +15,7 @@ require('dotenv').config();
 const port = 5000; // Use dynamic port from environment or default to 5000
 
 // CORS setup: Allow frontend access for both local and production
-const frontendOrigin = process.env.FRONTEND_ORIGIN || 'http://localhost:3000';  // Default to localhost:3000 for local, use environment for production
+const frontendOrigin =  'https://springspro.vercel.app/';  // Default to localhost:3000 for local, use environment for production
 
 // Allow all HTTP methods and content types for CORS requests
 app.use(cors({
@@ -71,7 +71,7 @@ app.post('/api/submit', (req, res) => {
 });
 
 // GET route to serve the Excel file with password protection
-app.get('/data', (req, res) => {
+app.get('src/data', (req, res) => {
   const { password } = req.query;  // Get the password from the query string
 
   // Check if the password is correct

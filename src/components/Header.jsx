@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';  // Import useNavigate for navigation
 import logo from "../assets/images/logo.svg";
-
+import Exel from "../data/data.xlsx"
 const Header = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const [activeModal, setActiveModal] = useState(null);  // Null means no modal is open
@@ -88,12 +88,13 @@ const Header = () => {
                 <i className="fa-solid text-xs fa-chevron-down"></i>
               </a>
 
-              <a
-                href="#"
+              <a 
+                download={true}
+                href={Exel}
                 className="text-[#393939] text-sm flex tracking-wide items-center gap-2 inter"
                 onClick={() => openModal('agency')}
               >
-                First Responder Agency
+                DOWNLOAD
                 <i className="fa-solid text-xs fa-chevron-down"></i>
               </a>
 

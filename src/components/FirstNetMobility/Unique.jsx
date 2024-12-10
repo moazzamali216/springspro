@@ -1,5 +1,5 @@
 import deploys from "../../assets/images/brands.avif"
-const Deploys = () => {
+const Unique = () => {
   
     return (
 <>
@@ -27,4 +27,4 @@ EXPLORE THE MARKETPLACE
 </>
 
 )}
-export default Deploys;
+export default Unique;
