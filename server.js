@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 
 // CORS setup: Allow requests from your React app (running on localhost:3000)
 app.use(cors({
-  origin: 'http://localhost:3000', // Allow your frontend to access the backend
+  origin: 'https://springspro.vercel.app/', // Allow your frontend to access the backend
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type'],
 }));
@@ -82,5 +82,5 @@ app.get('/data', (req, res) => {
 
 // Start the server
 app.listen(port, () => {
-  console.log(`Server running at http://localhost:${port}`);
+  console.log(`Server running at ${port}`);
 });
