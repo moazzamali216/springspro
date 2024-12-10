@@ -4,26 +4,30 @@ const XLSX = require('xlsx');
 const path = require('path');
 const fs = require('fs');
 const bcrypt = require('bcryptjs');
-const cors = require('cors'); // Import cors package
+const cors = require('cors');  // Import CORS package
 
 const app = express();
-const port = 5000;
 
-// Middleware to parse JSON request bodies
-app.use(bodyParser.json());
+// Set the port for both local and production environments
+const port = process.env.PORT || 5000; // Local development uses port 5000, but Vercel/Heroku uses dynamic ports
 
-// CORS setup: Allow requests from your React app (running on localhost:3000)
+// CORS setup: Allow frontend access for both local and production
+// You can replace this with your actual frontend production URL later
+const frontendOrigin = 'https://springspro.vercel.app/';  // Default to localhost:3000 for local, adjust in production
 app.use(cors({
-  origin: 'https://springspro.vercel.app/', // Allow your frontend to access the backend
+  origin: frontendOrigin, // Allow access from localhost or production frontend
   methods: ['GET', 'POST'],
   allowedHeaders: ['Content-Type'],
 }));
 
-// In-memory storage for form data (you can move this to a database)
+// Middleware to parse JSON request bodies
+app.use(bodyParser.json());
+
+// In-memory storage for form data (this can be replaced by a database)
 let formData = [];
 
-// The hashed password for accessing the data
-const passwordHash = bcrypt.hashSync('yourpassword', 10); // Replace 'yourpassword' with your chosen password
+// The hashed password for accessing the data (use a hardcoded password for simplicity)
+const passwordHash = bcrypt.hashSync('yourpassword', 10); // Replace 'yourpassword' with your actual password
 
 // Directory to store the Excel file
 const dataDirectory = path.join(__dirname, 'data'); // Path to 'data' folder
@@ -80,7 +84,7 @@ app.get('/data', (req, res) => {
   }
 });
 
-// Start the server
+// Start the server (use the dynamic port for production)
 app.listen(port, () => {
-  console.log(`Server running at ${port}`);
+  console.log(`Server running on port ${port}`);
 });

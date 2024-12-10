@@ -68,12 +68,19 @@ const Form = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+    
+    // Determine the API endpoint dynamically
+    const apiUrl = process.env.NODE_ENV === 'production'
+      ? 'https://springspro.vercel.app/api/submit'  // Replace this with your production backend URL
+      : 'http://localhost:5000/api/submit';  // Local backend URL
+    
     try {
-      // Submit form data to the backend (replace URL with your backend API)
-      await axios.post('https://springspro.vercel.app:5000/api/submit', formData);
+      // Submit form data to the backend
+      await axios.post(apiUrl, formData);
       setSubmitSuccess(true);
       setErrorMessage('');
-      // setFormData({""}); // Clear form
+      // Optionally, clear form data after submission
+      // setFormData({});  // Uncomment this if you want to clear the form
     } catch (error) {
       setSubmitSuccess(false);
       setErrorMessage('Failed to submit form data');
@@ -81,6 +88,7 @@ const Form = () => {
       setLoading(false);
     }
   };
+  
 
   return (
     <div className="form-container container mx-auto px-4 xl:px-[120px] mt-[320px]">
