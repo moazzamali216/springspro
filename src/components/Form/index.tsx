@@ -68,19 +68,12 @@ const Form = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
-    
-    // Determine the API endpoint dynamically
-    const apiUrl = process.env.NODE_ENV === 'production'
-      ? 'https://springspro.vercel.app/api/submit'  // Replace this with your production backend URL
-      : 'http://localhost:5000/api/submit';  // Local backend URL
-    
     try {
-      // Submit form data to the backend
-      await axios.post(apiUrl, formData);
+      // Submit form data to the backend (replace URL with your backend API)
+      await axios.post('https://springspro.vercel.app/api/submit', formData);
       setSubmitSuccess(true);
       setErrorMessage('');
-      // Optionally, clear form data after submission
-      // setFormData({});  // Uncomment this if you want to clear the form
+      // setFormData({""}); // Clear form
     } catch (error) {
       setSubmitSuccess(false);
       setErrorMessage('Failed to submit form data');
@@ -88,12 +81,11 @@ const Form = () => {
       setLoading(false);
     }
   };
-  
 
   return (
-    <div className="form-container container mx-auto px-4 xl:px-[120px] mt-[320px]">
+<div className='container mx-auto px-4 xl:px-[120px]'>
+<div className="form-container">
       <form onSubmit={handleSubmit}>
-        
         <h3 className="text-xl text-gray-800 font-semibold mb-4 sm:text-center text-start">
           AT&T Seller Information
         </h3>
@@ -233,132 +225,6 @@ const Form = () => {
             <option value="no">No</option>
           </select>
         </div>
-        <div>
-  <h3 className="text-xl text-gray-800 font-semibold mb-4 sm:text-center text-start">
-    AT&T Account Information
-  </h3>
-  <div className="grid grid-cols-1 mt-10 md:grid-cols-3 gap-4">
-    <div className="mb-4">
-      <h6 className="text-sm md:text-center text-start font-medium text-gray-700">Business Legal Name</h6>
-      <input
-        type="text"
-        name="businesslegalname"
-        placeholder="Enter Business Legal Name"
-        value={formData.businesslegalname}
-        onChange={handleChange}
-        className="border-b focus:outline-none border-gray-300 py-2 w-full"
-      />
-    </div>
-
-    <div className="mb-4">
-      <h6 className="text-sm md:text-center text-start font-medium text-gray-700">Business Address</h6>
-      <input
-        type="text"
-        name="businessaddress"
-        placeholder="Enter Business Address"
-        value={formData.businessaddress}
-        onChange={handleChange}
-        className="border-b focus:outline-none border-gray-300 py-2 w-full"
-      />
-    </div>
-
-    <div className="mb-4">
-      <h6 className="text-sm md:text-center text-start font-medium text-gray-700">Business City</h6>
-      <input
-        type="text"
-        name="businesscity"
-        placeholder="Enter Business City"
-        value={formData.businesscity}
-        onChange={handleChange}
-        className="border-b focus:outline-none border-gray-300 py-2 w-full"
-      />
-    </div>
-
-    <div className="mb-4">
-      <h6 className="text-sm md:text-center text-start font-medium text-gray-700">Business State</h6>
-      <input
-        type="text"
-        name="businessstate"
-        placeholder="Enter Business State"
-        value={formData.businessstate}
-        onChange={handleChange}
-        className="border-b focus:outline-none border-gray-300 py-2 w-full"
-      />
-    </div>
-
-    <div className="mb-4">
-      <h6 className="text-sm md:text-center text-start font-medium text-gray-700">Business Zip</h6>
-      <input
-        type="text"
-        name="businesszip"
-        placeholder="Enter Business Zip"
-        value={formData.businesszip}
-        onChange={handleChange}
-        className="border-b focus:outline-none border-gray-300 py-2 w-full"
-      />
-    </div>
-
-    <div className="mb-4">
-      <h6 className="text-sm md:text-center text-start font-medium text-gray-700">Tax ID</h6>
-      <input
-        type="text"
-        name="taxid"
-        placeholder="Enter Tax ID"
-        value={formData.taxid}
-        onChange={handleChange}
-        className="border-b focus:outline-none border-gray-300 py-2 w-full"
-      />
-    </div>
-
-    <div className="mb-4">
-      <h6 className="text-sm md:text-center text-start font-medium text-gray-700">Contact Name</h6>
-      <input
-        type="text"
-        name="contactname"
-        placeholder="Enter Contact Name"
-        value={formData.contactname}
-        onChange={handleChange}
-        className="border-b focus:outline-none border-gray-300 py-2 w-full"
-      />
-    </div>
-
-    <div className="mb-4">
-      <h6 className="text-sm md:text-center text-start font-medium text-gray-700">Contact Phone</h6>
-      <input
-        type="text"
-        name="contactphone"
-        placeholder="Enter Contact Phone"
-        value={formData.contactphone}
-        onChange={handleChange}
-        className="border-b focus:outline-none border-gray-300 py-2 w-full"
-      />
-    </div>
-
-    <div className="mb-4">
-      <h6 className="text-sm md:text-center text-start font-medium text-gray-700">Contact Email</h6>
-      <input
-        type="email"
-        name="contactemail"
-        placeholder="Enter Contact Email"
-        value={formData.contactemail}
-        onChange={handleChange}
-        className="border-b focus:outline-none border-gray-300 py-2 w-full"
-      />
-    </div>
-
-    <div className="mb-4">
-      <h6 className="text-sm md:text-center text-start font-medium text-gray-700">Location ID</h6>
-      <input
-        type="text"
-        name="locationid"
-        placeholder="Enter Location ID"
-        value={formData.locationid}
-        onChange={handleChange}
-        className="border-b focus:outline-none border-gray-300 py-2 w-full"
-      />
-    </div>
-  </div>
-</div>
 
         {/* Order Shipping Information */}
         <h3 className="text-xl text-gray-800 font-semibold mb-4 sm:text-center text-start mt-10">
@@ -372,8 +238,8 @@ const Form = () => {
             className="border-b mb-4 border-gray-300 py-2"
           >
             <option value="">Select Shipment Mode</option>
-            <option value="single">Single Shipment Address</option>
-            <option value="multiple">Multiple Shipment Address</option>
+            <option value="yes">Single Shipment Address</option>
+            <option value="no">Multiple Shipment Address</option>
           </select>
           <div className="mb-4">
             <h6 className="text-sm md:text-center text-start font-medium text-gray-700">Attention Name</h6>
@@ -571,6 +437,7 @@ const Form = () => {
         </div>
       </form>
     </div>
+</div>
   );
 };
 
