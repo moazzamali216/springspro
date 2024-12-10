@@ -71,7 +71,8 @@ app.post('/api/submit', (req, res) => {
 });
 
 // GET route to serve the Excel file with password protection
-app.get('src/data', (req, res) => {
+// GET route to serve the Excel file with password protection
+app.get('/download/data', (req, res) => {
   const { password } = req.query;  // Get the password from the query string
 
   // Check if the password is correct
@@ -80,7 +81,7 @@ app.get('src/data', (req, res) => {
 
     // Check if the file exists before attempting to serve it
     if (fs.existsSync(filePath)) {
-      res.sendFile(filePath);  // Send the Excel file to the client
+      res.download(filePath);  // This will send the file for download
     } else {
       res.status(404).send('File not found');  // If the file doesn't exist
     }
@@ -88,6 +89,7 @@ app.get('src/data', (req, res) => {
     res.status(403).send('Forbidden: Invalid password');  // If password is incorrect
   }
 });
+
 
 // Start the server (use the dynamic port for production)
 app.listen(port, () => {
